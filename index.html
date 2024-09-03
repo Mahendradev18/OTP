@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      .bb {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 50px;
+      }
+      #dis {
+        margin-top: 20px;
+        font-size: 1.5em;
+        font-weight: bold;
+      }
+      button {
+        padding: 10px 20px;
+        font-size: 1em;
+        font-family: Georgia, "Times New Roman", Times, serif;
+        border-radius: 15px;
+        cursor: grab;
+      }
+      button:focus {
+        background: none;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="bb">
+      <button onclick="go(),BackColor()">Click For OTP</button>
+      <div id="dis"></div>
+    </div>
+    <script>
+      function go() {
+        const otp = Math.floor(100000 + Math.random() * 900000);
+        document.getElementById("dis").innerHTML = `Your otp is ${otp}`;
+      }
+
+      function color() {
+        let a = "0123456789ABCDEF";
+        let color = "#";
+        for (let i = 0; i < 6; i++) {
+          color += a[Math.floor(Math.random() * 14)];
+        }
+        return color;
+      }
+      function BackColor() {
+        document.body.style.backgroundColor = color();
+      }
+    </script>
+  </body>
+</html>
